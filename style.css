@@ -15,22 +15,22 @@ header {
     background-color: #4A604F;
     color: white;
     text-align: center;
-    padding: 0.75rem 0; /* מרווח פנימי גדול יותר */
+    padding: 0.75rem 0;
 }
 
 header h1 {
-    font-size: 1.5rem; /* גודל כותרת גדול יותר */
+    font-size: 1.5rem;
     margin: 0;
     font-weight: 700;
 }
 
 /* הגדרות קונטיינר הכרטיסים */
 main {
-    padding: 1rem; /* מרווח כללי גדול יותר */
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem; /* מרווח גדול יותר בין הכרטיסים */
+    gap: 1rem;
 }
 
 /* סגנון הכרטיס הכללי */
@@ -43,7 +43,9 @@ main {
     width: 100%;
     max-width: 600px;
     position: relative;
-    height: 160px; /* הגדלת גובה הכרטיס */
+    /* הוסר: height: 160px; */
+    /* הוספתי גובה מינימלי למקרה שהטקסט קצר מאוד */
+    min-height: 160px;
 }
 
 /* פס צבעוני למעלה כל כרטיס */
@@ -67,7 +69,7 @@ main {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 3rem; /* הגדלת גודל הטקסט */
+    font-size: 3rem;
     font-weight: 900;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -80,7 +82,7 @@ main {
 /* החלק עם התוכן הטקסטואלי */
 .content-section {
     flex: 1.5;
-    padding: 1.25rem; /* מרווח פנימי גדול יותר */
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,19 +90,19 @@ main {
 
 .path-description {
     color: #333;
-    font-size: 0.95rem; /* הגדלת גודל הטקסט */
+    font-size: 0.95rem;
     margin: 0 0 0.75rem 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    /* הוסר: overflow: hidden; */
+    /* הוסר: text-overflow: ellipsis; */
+    /* הוסר: display: -webkit-box; */
+    /* הוסר: -webkit-line-clamp: 2; */
+    /* הוסר: -webkit-box-orient: vertical; */
 }
 
 /* נתוני הסטטיסטיקה */
 .stats {
     display: flex;
-    gap: 1rem; /* מרווח גדול יותר */
+    gap: 1rem;
     color: #555;
     font-weight: 500;
 }
@@ -109,27 +111,43 @@ main {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.9rem; /* הגדלת גודל הטקסט */
+    font-size: 0.9rem;
 }
 
 /* התאמה למסכים קטנים (מובייל) */
 @media (max-width: 600px) {
     .card {
-        height: 140px; /* הגדלה של גובה הכרטיס במובייל */
+        /* הוסר: height: 140px; */
+        min-height: 140px;
+        flex-direction: column;
+        align-items: center;
     }
+
     .distance-section {
         font-size: 2rem;
+        flex: none;
+        padding: 0.5rem;
+        width: 100%;
+        border-radius: 0.75rem 0.75rem 0 0;
     }
+
+    .card::before {
+        height: 0; /* הסרת הפס הצבעוני כאשר הכרטיס במצב טור */
+    }
+
     .content-section {
         padding: 0.75rem;
+        flex: none;
+        width: 100%;
     }
     .path-description {
         font-size: 0.8rem;
-        -webkit-line-clamp: 2;
+        /* הוסר: -webkit-line-clamp: 2; */
     }
     .stats {
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
+        justify-content: center;
     }
     .stat-item {
         font-size: 0.8rem;
