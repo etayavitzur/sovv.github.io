@@ -1,0 +1,38 @@
+/* צבע רקע כללי */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e0e0e0; /* אפור בהיר */
+  text-align: center;
+}
+
+/* כותרת */
+header {
+  background-color: #2e7d32; /* ירוק */
+  color: white;
+  padding: 20px 0;
+}
+
+/* מכולת הריבועים */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+  flex-wrap: wrap; /* מתאים גם למסכים קטנים */
+}
+
+/* כל ריבוע */
+.card {
+  background-color: #33691e; /* ירוק כהה */
+  color: white;
+  padding: 30px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
