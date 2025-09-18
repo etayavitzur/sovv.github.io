@@ -5,7 +5,13 @@ body {
     font-family: 'Heebo', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
+    /* תמונה של מפה טופוגרפית עם שקיפות 30% */
+    background-image: 
+        linear-gradient(rgba(240, 242, 245, 0.7), rgba(240, 242, 245, 0.7)),
+        url('https://i.imgur.com/8wfE3zC.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     direction: rtl;
     line-height: 1.6;
 }
@@ -43,8 +49,6 @@ main {
     width: 100%;
     max-width: 600px;
     position: relative;
-    /* הוסר: height: 160px; */
-    /* הוספתי גובה מינימלי למקרה שהטקסט קצר מאוד */
     min-height: 160px;
 }
 
@@ -92,11 +96,6 @@ main {
     color: #333;
     font-size: 0.95rem;
     margin: 0 0 0.75rem 0;
-    /* הוסר: overflow: hidden; */
-    /* הוסר: text-overflow: ellipsis; */
-    /* הוסר: display: -webkit-box; */
-    /* הוסר: -webkit-line-clamp: 2; */
-    /* הוסר: -webkit-box-orient: vertical; */
 }
 
 /* נתוני הסטטיסטיקה */
@@ -117,7 +116,6 @@ main {
 /* התאמה למסכים קטנים (מובייל) */
 @media (max-width: 600px) {
     .card {
-        /* הוסר: height: 140px; */
         min-height: 140px;
         flex-direction: column;
         align-items: center;
@@ -132,7 +130,7 @@ main {
     }
 
     .card::before {
-        height: 0; /* הסרת הפס הצבעוני כאשר הכרטיס במצב טור */
+        height: 0;
     }
 
     .content-section {
@@ -142,7 +140,6 @@ main {
     }
     .path-description {
         font-size: 0.8rem;
-        /* הוסר: -webkit-line-clamp: 2; */
     }
     .stats {
         flex-direction: row;
