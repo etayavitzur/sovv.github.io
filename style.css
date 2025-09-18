@@ -12,38 +12,37 @@ body {
 
 /* סגנון כותרת עליונה */
 header {
-    background-color: #4A604F;
+    background-color: #4A604F; /* ירוק כהה מהתמונה המקורית */
     color: white;
     text-align: center;
-    padding: 0.5rem 0; /* מרווח פנימי מינימלי */
+    padding: 1.5rem 0; /* מרווח פנימי עדין יותר */
 }
 
 header h1 {
-    font-size: 1.2rem; /* גודל כותרת קטן מאוד */
+    font-size: 1.5rem; /* גודל כותרת קומפקטי יותר */
     margin: 0;
     font-weight: 700;
 }
 
 /* הגדרות קונטיינר הכרטיסים */
 main {
-    padding: 0.5rem; /* מרווח כללי קטן יותר */
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem; /* מרווח קטן בין הכרטיסים */
+    gap: 1.5rem; /* מרווח קטן יותר בין הכרטיסים */
 }
 
 /* סגנון הכרטיס הכללי */
 .card {
     display: flex;
     background-color: white;
-    border-radius: 0.75rem;
+    border-radius: 0.75rem; /* פינות מעוגלות עדינות */
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%; /* רוחב מלא כדי להתאים למסך */
-    max-width: 600px; /* הגבלה רוחב במחשבים */
+    width: 90%;
+    max-width: 750px;
     position: relative;
-    height: 150px; /* הגדרת גובה קבוע לכרטיס */
 }
 
 /* פס צבעוני למעלה כל כרטיס */
@@ -62,12 +61,12 @@ main {
 
 /* החלק של המרחק */
 .distance-section {
-    flex: 0.8;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 900;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -79,8 +78,8 @@ main {
 
 /* החלק עם התוכן הטקסטואלי */
 .content-section {
-    flex: 1.5;
-    padding: 1rem; /* מרווח פנימי מצומצם */
+    flex: 1.5; /* נותן יותר שטח לחלק הטקסטואלי */
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,19 +87,14 @@ main {
 
 .path-description {
     color: #333;
-    font-size: 0.85rem;
-    margin: 0 0 0.5rem 0; /* מרווח תחתון קטן יותר */
-    overflow: hidden; /* מונע גלישה של טקסט ארוך */
-    text-overflow: ellipsis; /* מוסיף 3 נקודות בסוף אם הטקסט ארוך מדי */
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* מגביל את הטקסט לשתי שורות בלבד */
-    -webkit-box-orient: vertical;
+    font-size: 0.95rem;
+    margin: 0 0 1rem 0;
 }
 
 /* נתוני הסטטיסטיקה */
 .stats {
     display: flex;
-    gap: 0.75rem; /* מרווח קטן יותר */
+    gap: 1rem;
     color: #555;
     font-weight: 500;
 }
@@ -109,29 +103,33 @@ main {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 /* התאמה למסכים קטנים (מובייל) */
 @media (max-width: 600px) {
+    main {
+        padding: 1rem 0.5rem;
+        gap: 0.75rem; /* צמצום המרווחים כדי להכניס הכל למסך */
+    }
+
     .card {
-        height: 120px; /* הקטנה נוספת של הגובה במובייל */
+        flex-direction: row; /* שומרים על מבנה אופקי */
+        padding-top: 0;
+        width: 100%;
     }
+    
     .distance-section {
-        font-size: 1.5rem;
+        flex: 0.8; /* מקטין את רוחב החלק עם המרחק */
+        font-size: 2rem;
+        padding: 1rem;
     }
+
     .content-section {
-        padding: 0.5rem;
+        padding: 0.75rem;
     }
+
     .path-description {
-        font-size: 0.7rem;
-        -webkit-line-clamp: 2;
-    }
-    .stats {
-        flex-direction: column; /* הצגת הנתונים אחד מתחת לשני */
-        gap: 0.25rem;
-    }
-    .stat-item {
-        font-size: 0.7rem;
+        font-size: 0.85rem;
     }
 }
