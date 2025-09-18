@@ -5,13 +5,6 @@ body {
     font-family: 'Heebo', sans-serif;
     margin: 0;
     padding: 0;
-    /* תמונה של מפה טופוגרפית עם שקיפות 30% */
-    background-image: 
-        linear-gradient(rgba(240, 242, 245, 0.7), rgba(240, 242, 245, 0.7)),
-        url('https://i.imgur.com/8wfE3zC.jpeg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
     direction: rtl;
     line-height: 1.6;
 }
