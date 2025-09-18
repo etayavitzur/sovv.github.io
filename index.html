@@ -1,60 +1,132 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>שביל סובב סנסנה</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שביל סובב סנסנה</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS מותאם אישית לעיצוב החדש */
+        .card-container {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            direction: rtl; /* כדי לוודא שכל הכרטיס מימין לשמאל */
+        }
+        .text-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .distance-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .distance-4km { background-color: #4CAF50; }
+        .distance-6km { background-color: #FF9800; }
+        .distance-10km { background-color: #2196F3; }
+        .path-description {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        .stats {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            color: #555;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>שביל סובב סנסנה</h1>
-  </header>
+    <header>
+        <h1>שביל סובב סנסנה</h1>
+    </header>
+    <main>
+        <div class="card-container">
+            <div class="text-section">
+                <p class="path-description">
+                    המסלול עובר על יד היער ומשמאל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר ומשם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>⛰️</span>
+                        <span>130m</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>↗️</span>
+                        <span>130m</span>
+                    </div>
+                </div>
+            </div>
+            <div class="distance-section distance-4km">
+                4KM
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="text-section">
+                <p class="path-description">
+                    המסלול עובר על יד היער ומשמאל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר ומשם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>⛰️</span>
+                        <span>130m</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>↗️</span>
+                        <span>130m</span>
+                    </div>
+                </div>
+            </div>
+            <div class="distance-section distance-6km">
+                6KM
+            </div>
+        </div>
 
-  <main>
-    <div class="cards-container">
-      <div class="card long">
-        <div class="card-header">
-          <p class="distance">10KM</p>
-          <h2>מסלול ארוך</h2>
+        <div class="card-container">
+            <div class="text-section">
+                <p class="path-description">
+                    המסלול עובר על יד היער ומשמאל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר ומשם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>⛰️</span>
+                        <span>130m</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>↗️</span>
+                        <span>130m</span>
+                    </div>
+                </div>
+            </div>
+            <div class="distance-section distance-10km">
+                10KM
+            </div>
         </div>
-        <p class="description">
-          המסלול עובר על יד היער ומתחיל לשדות בחיבור עם הכביש פונה דרומה עד לפיניה ליד המאגר משם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
-        </p>
-        <div class="details">
-          <div class="detail">
-            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
-            <p>150M</p>
-          </div>
-          <div class="detail">
-            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
-            <p>190M</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="card medium">
-        <div class="card-header">
-          <p class="distance">5KM</p>
-          <h2>מסלול בינוני</h2>
-        </div>
-        <p class="description">
-           תיאור מסלול בינוני...
-        </p>
-        <div class="details">
-          <div class="detail">
-            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
-            <p>100M</p>
-          </div>
-          <div class="detail">
-            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
-            <p>120M</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 </body>
 </html>
