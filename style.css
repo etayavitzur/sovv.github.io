@@ -1,38 +1,93 @@
-/* צבע רקע כללי */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #e0e0e0; /* אפור בהיר */
+  font-family: 'Heebo', sans-serif;
+  background-color: #f0e6d5; /* גוון אדמה בהיר */
+  text-align: right;
+  direction: rtl; /* כדי ליישר את הטקסט מימין לשמאל */
+}
+
+/* כותרת עליונה */
+header {
+  background-color: #4b5d4e; /* ירוק כהה מהתמונה */
+  color: white;
+  padding: 20px 0;
   text-align: center;
 }
 
-/* כותרת */
-header {
-  background-color: #2e7d32; /* ירוק */
-  color: white;
-  padding: 20px 0;
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin: 0;
 }
 
 /* מכולת הריבועים */
 .cards-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 50px;
-  flex-wrap: wrap; /* מתאים גם למסכים קטנים */
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
 }
 
-/* כל ריבוע */
+/* כל ריבוע - כרטיס */
 .card {
-  background-color: #33691e; /* ירוק כהה */
+  background-color: #4b5d4e; /* ירוק כהה */
   color: white;
-  padding: 30px;
-  width: 250px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  transition: transform 0.2s;
+  position: relative;
+  text-align: right;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  border-bottom: 2px solid #5a7b5d;
+  padding-bottom: 10px;
+}
+
+.card-header h2 {
+  color: #c9e4c1; /* ירוק בהיר */
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.card-header .distance {
+  background-color: #c9e4c1; /* ירוק בהיר */
+  color: #4b5d4e;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.card .description {
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+.details {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.detail img {
+  width: 20px;
+  filter: invert(1);
 }
