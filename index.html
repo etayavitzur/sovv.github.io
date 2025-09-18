@@ -2,34 +2,59 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
-  <title>דף נחיתה</title>
+  <title>שביל טוב נס נס</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- כותרת עליונה -->
   <header>
-    <h1>ברוכים הבאים למסלולים</h1>
+    <h1>שביל טוב נס נס</h1>
   </header>
 
-  <!-- אזור תוכן עם שלושת הריבועים -->
   <main>
     <div class="cards-container">
-      <div class="card">
-        <h2> הקצרצר קצר</h2>
-        <p>תיאור של המסלול הקצר</p>
+      <div class="card long">
+        <div class="card-header">
+          <p class="distance">10KM</p>
+          <h2>מסלול ארוך</h2>
+        </div>
+        <p class="description">
+          המסלול עובר על יד היער ומתחיל לשדות בחיבור עם הכביש פונה דרומה עד לפיניה ליד המאגר משם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
+        </p>
+        <div class="details">
+          <div class="detail">
+            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
+            <p>150M</p>
+          </div>
+          <div class="detail">
+            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
+            <p>190M</p>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h2>מסלול בינוני</h2>
-        <p>תיאור של המסלול הבינוני</p>
-      </div>
-      <div class="card">
-        <h2>מסלול ארוך</h2>
-        <p>תיאור של המסלול הארוך</p>
+      
+      <div class="card medium">
+        <div class="card-header">
+          <p class="distance">5KM</p>
+          <h2>מסלול בינוני</h2>
+        </div>
+        <p class="description">
+           תיאור מסלול בינוני...
+        </p>
+        <div class="details">
+          <div class="detail">
+            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
+            <p>100M</p>
+          </div>
+          <div class="detail">
+            <img src="https://sovv-10d4b.web.app/images/mountain-icon.png" alt="גובה">
+            <p>120M</p>
+          </div>
+        </div>
       </div>
     </div>
   </main>
-
-  <!-- חיבור לקובץ JS של Firebase -->
-  <script type="module" src="app.js"></script>
 </body>
 </html>
