@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Wikiloc - https://www.wikiloc.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <trk>
+  <name>6KM</name>
+  <trkseg>
+   <trkpt lat="32.078722" lon="34.824964"><ele>58.26</ele><time>2025-09-15T14:30:28Z</time></trkpt>
+   <trkpt lat="32.078767" lon="34.824885"><ele>58.61</ele><time>2025-09-15T14:30:29Z</time></trkpt>
+   <trkpt lat="32.078812" lon="34.824801"><ele>58.88</ele><time>2025-09-15T14:30:30Z</time></trkpt>
+   ...
+  </trkseg>
+ </trk>
+</gpx>
