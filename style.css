@@ -68,7 +68,8 @@ main {
 
 /* החלק של המרחק */
 .distance-section {
-    flex: 0.8;
+    /* שינוי כדי לתפוס כשליש מהרוחב */
+    flex: 1; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,7 +86,8 @@ main {
 
 /* החלק עם התוכן הטקסטואלי */
 .content-section {
-    flex: 1.5;
+    /* שינוי כדי לתפוס כשני שליש מהרוחב */
+    flex: 2; 
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -117,26 +119,26 @@ main {
 @media (max-width: 600px) {
     .card {
         min-height: 140px;
-        flex-direction: column;
-        align-items: center;
+        /* שינוי: הסרת flex-direction: column; כדי לשמור על הפריסה הצדדית */
+        align-items: stretch;
     }
 
     .distance-section {
+        /* החזרת הגדרות רגילות, שכן החלוקה נעשית באמצעות flex: 1 */
         font-size: 2rem;
-        flex: none;
+        flex: 1;
         padding: 0.5rem;
-        width: 100%;
         border-radius: 0.75rem 0.75rem 0 0;
     }
 
     .card::before {
-        height: 0;
+        height: 6px; /* שמירה על הפס הצבעוני גם במובייל */
     }
 
     .content-section {
+        /* החזרת הגדרות רגילות, שכן החלוקה נעשית באמצעות flex: 2 */
         padding: 0.75rem;
-        flex: none;
-        width: 100%;
+        flex: 2;
     }
     .path-description {
         font-size: 0.8rem;
