@@ -1,93 +1,121 @@
+/* ייבוא גופן Heebo מהאינטרנט */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
 
+/* הגדרות בסיסיות לגוף הדף */
 body {
-  margin: 0;
-  font-family: 'Heebo', sans-serif;
-  background-color: #4A604F; /* גוון אדמה בהיר */
-  text-align: right;
-  direction: rtl; /* כדי ליישר את הטקסט מימין לשמאל */
+    font-family: 'Heebo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* צבע רקע אפור בהיר ועדין */
+    direction: rtl;
+    line-height: 1.6;
 }
 
-/* כותרת עליונה */
+/* סגנון כותרת עליונה */
 header {
-  background-color: #4A604F; /* ירוק כהה מהתמונה */
-  color: white;
-  padding: 20px 0;
-  text-align: center;
+    background-color: #4CAF50; /* ירוק נעים */
+    color: white;
+    text-align: center;
+    padding: 2.5rem 0; /* מרווח גדול יותר לכותרת */
 }
 
 header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  margin: 0;
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
 }
 
-/* מכולת הריבועים */
-.cards-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  padding: 30px;
+/* הגדרות קונטיינר הכרטיסים */
+main {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* מרווח גדול יותר בין הכרטיסים */
 }
 
-/* כל ריבוע - כרטיס */
+/* סגנון הכרטיס הכללי */
 .card {
-  background-color: #4A604F; /* ירוק כהה */
-  color: white;
-  padding: 20px;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  position: relative;
-  text-align: right;
+    display: flex;
+    background-color: white;
+    border-radius: 1rem; /* פינות מעוגלות יותר */
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* צל עדין וברור יותר */
+    width: 90%;
+    max-width: 750px; /* הגדלה של הרוחב המקסימלי */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* אנימציה בעת מעבר עכבר */
 }
 
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 15px;
-  border-bottom: 2px solid #5a7b5d;
-  padding-bottom: 10px;
+.card:hover {
+    transform: translateY(-5px); /* הכרטיס "קופץ" מעט למעלה */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.card-header h2 {
-  color: #4A604F; /* ירוק בהיר */
-  font-size: 1.5rem;
-  margin: 0;
+/* החלק של המרחק */
+.distance-section {
+    flex-shrink: 0; /* מונע מהחלק הזה להתכווץ */
+    width: 40%; /* הקטנת הרוחב של החלק הזה */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 5rem; /* הגדלה של גודל הטקסט */
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
-.card-header .distance {
-  background-color: #4A604F; /* ירוק בהיר */
-  color: #4b5d4e;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
+/* צבעי המרחק */
+.distance-4km { background-color: #4CAF50; } /* ירוק */
+.distance-6km { background-color: #FF9800; } /* כתום */
+.distance-10km { background-color: #2196F3; } /* כחול */
+
+/* החלק עם התוכן הטקסטואלי */
+.content-section {
+    padding: 2rem; /* מרווח פנימי גדול יותר */
+    flex-grow: 1; /* מאפשר לחלק הזה למלא את השטח הנותר */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.card .description {
-  line-height: 1.6;
-  margin: 15px 0;
+/* תיאור המסלול */
+.path-description {
+    color: #333;
+    font-size: 1.1rem;
+    margin: 0 0 1.5rem 0; /* מרווח תחתון עקבי */
 }
 
-.details {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-  align-items: center;
-  margin-top: 15px;
+/* נתוני הסטטיסטיקה */
+.stats {
+    display: flex;
+    gap: 1.5rem; /* מרווח גדול יותר בין האלמנטים */
+    color: #555;
+    font-weight: 500;
 }
 
-.detail {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
 }
 
-.detail img {
-  width: 20px;
-  filter: invert(1);
+.stat-item span {
+    font-size: 1.25rem;
+}
+
+/* התאמה למסכים קטנים (רספונסיביות) */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column-reverse; /* הופך את סדר האלמנטים לטור במקום שורה */
+    }
+    .distance-section {
+        width: 100%; /* החלק של המרחק תופס את כל הרוחב */
+        font-size: 3rem; /* הקטנת גודל הטקסט */
+        border-radius: 1rem 1rem 0 0; /* עיגול פינות עליונות בלבד */
+    }
+    .content-section {
+        padding-top: 1.5rem;
+    }
 }
