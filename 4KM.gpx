@@ -1,12 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gpx version="1.1" creator="Wikiloc - https://www.wikiloc.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="AllTrails.com">
+ <metadata>
+  <link href="https://www.alltrails.com">
+   <text>AllTrails</text>
+  </link>
+  <time>2025-09-19T18:08:21Z</time>
+ </metadata>
  <trk>
   <name>4KM</name>
   <trkseg>
-   <trkpt lat="32.078722" lon="34.824964"><ele>58.26</ele><time>2025-09-15T14:30:28Z</time></trkpt>
-   <trkpt lat="32.078747" lon="34.824904"><ele>58.57</ele><time>2025-09-15T14:30:29Z</time></trkpt>
-   <trkpt lat="32.078772" lon="34.824847"><ele>58.73</ele><time>2025-09-15T14:30:30Z</time></trkpt>
-   ...
+   <trkpt lat="31.3538000" lon="34.8885000"><ele>350.0</ele></trkpt>
+   <trkpt lat="31.3541000" lon="34.8892000"><ele>351.2</ele></trkpt>
+   <trkpt lat="31.3547000" lon="34.8901000"><ele>353.5</ele></trkpt>
+   <trkpt lat="31.3552000" lon="34.8909000"><ele>356.8</ele></trkpt>
+   <trkpt lat="31.3557000" lon="34.8918000"><ele>358.0</ele></trkpt>
+   <trkpt lat="31.3563000" lon="34.8924000"><ele>360.2</ele></trkpt>
+   <trkpt lat="31.3570000" lon="34.8929000"><ele>362.8</ele></trkpt>
+   <trkpt lat="31.3575000" lon="34.8933000"><ele>364.5</ele></trkpt>
+   <trkpt lat="31.3582000" lon="34.8940000"><ele>366.2</ele></trkpt>
+   <trkpt lat="31.3588000" lon="34.8947000"><ele>368.0</ele></trkpt>
   </trkseg>
  </trk>
 </gpx>
