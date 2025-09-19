@@ -152,7 +152,7 @@ header h1 {
 
 .choose-map-title {
     font-size: 1.1em;
-    margin: 0.5rem 1rem 0.5rem; /* שינוי: שינוי המרווחים */
+    margin: 0.20rem 1rem 0.5rem; /* שינוי: שינוי המרווחים */
     font-weight: 1000;
     align-self: flex-start; /* חדש: מצמיד את הכותרת לצד שמאל בתוך הקונטיינר הגמיש */
     text-align: right;
