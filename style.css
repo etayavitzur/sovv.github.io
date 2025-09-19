@@ -25,11 +25,11 @@ header h1 {
 
 /* הגדרות קונטיינר הכרטיסים */
 main {
-    padding: 1rem;
+    padding: 0.5rem 1rem 1rem; /* שינוי: הקטנת המרווח העליון */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem; /* שינוי: הקטנת המרווח בין האלמנטים */
 }
 
 /* סגנון הכרטיס הכללי */
@@ -61,7 +61,7 @@ main {
 
 /* החלק של המרחק */
 .distance-section {
-    flex: 1; 
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,7 +78,7 @@ main {
 
 /* החלק עם התוכן הטקסטואלי */
 .content-section {
-    flex: 2; 
+    flex: 2;
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -139,6 +139,10 @@ main {
     .stat-item {
         font-size: 0.8rem;
     }
+    
+    .choose-map-title {
+        margin: 0.5rem 0.75rem 0.25rem; /* שינוי: מרווחים למובייל */
+    }
 }
 
 /* תיקונים למרווחים והצמדת הטקסט */
@@ -148,7 +152,9 @@ header h1 {
 
 .choose-map-title {
     font-size: 1.1em;
-    margin: 2px 0 4px;
+    margin: 0.5rem 1rem 0.25rem; /* שינוי: שינוי המרווחים */
     font-weight: 500;
+    align-self: flex-start; /* חדש: מצמיד את הכותרת לצד שמאל בתוך הקונטיינר הגמיש */
     text-align: right;
+    width: 100%; /* חדש: מוודא שהכותרת תופסת את כל הרוחב */
 }
