@@ -9,13 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* שיהיה אפשר ללחוץ על כל הכרטיסיה */
         .card {
             cursor: pointer;
             transition: transform 0.2s;
         }
         .card:hover {
             transform: scale(1.02);
+        }
+        .choose-map-title {
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -26,11 +30,11 @@
     </header>
 
     <main>
+        <h2 class="choose-map-title">בחר מפה:</h2>
+
         <!-- כרטיסיה למסלול 4 ק"מ -->
         <div class="card card-4km" onclick="window.location.href='https://www.google.com/maps/d/viewer?mid=1lmmvRdciOkm5Tyd3pof5pM-59mOmDaQ&usp=sharing'">
-            <div class="distance-section">
-                4KM
-            </div>
+            <div class="distance-section">4KM</div>
             <div class="content-section">
                 <p class="path-description">
                     המסלול מקיף את חלקו הצפוני של היער ממשיך במקביל לכביש מזרחה ומסתיים בחיבור בין שלב א’ לשלב ב’
@@ -44,9 +48,7 @@
 
         <!-- כרטיסיה למסלול 6 ק"מ -->
         <div class="card card-6km" onclick="window.location.href='https://www.google.com/maps/d/viewer?mid=1TPnYyVNziI3lYx4UWM19K79odfSrauQ&usp=sharing'">
-            <div class="distance-section">
-                6KM
-            </div>
+            <div class="distance-section">6KM</div>
             <div class="content-section">
                 <p class="path-description">
                     המסלול מקיף את החלק הצפוני של היער וחוצה את הכביש דרומה עד לפנייה מזרח שחוצה את היער ממרכזו , מתחבר לכביש וממשיך עד למעיין
@@ -60,9 +62,7 @@
 
         <!-- כרטיסיה למסלול 10 ק"מ -->
         <div class="card card-10km" onclick="window.location.href='https://www.google.com/maps/d/viewer?mid=10w2Q3LfyCYZmfWE8pobQarj7Wbs1K5E&usp=sharing'">
-            <div class="distance-section">
-                10KM
-            </div>
+            <div class="distance-section">10KM</div>
             <div class="content-section">
                 <p class="path-description">
                     המסלול עובר על יד היער וממשיל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר משם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
