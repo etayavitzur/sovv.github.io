@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* שמרנו על הסגנון הקיים שלך */
+        /* שמרנו על העיצוב המקורי שלך */
         body {
             font-family: 'Heebo', sans-serif;
             margin: 0;
@@ -126,7 +126,8 @@
 
 <script>
     function navigateToGPX(url) {
-        window.open(url, '_blank');
+        // שימוש ב-window.location.href כדי לפתוח את הקובץ GPX ישירות באפליקציה במכשיר
+        window.location.href = url;
     }
 </script>
 
