@@ -7,25 +7,6 @@ body {
     padding: 0;
     direction: rtl;
     line-height: 1.6;
-    position: relative;
-    z-index: 1;
-}
-
-/* אלמנט פסאודו לתמונת הרקע */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* קישור תקין לתמונה */
-    background-image: url('https://etayavitzur.github.io/4031277.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    opacity: 0.4; /* הגדרת השקיפות ל-40% */
-    z-index: -1; /* מציב את התמונה מתחת לכל שאר התוכן */
 }
 
 /* סגנון כותרת עליונה */
@@ -44,11 +25,11 @@ header h1 {
 
 /* הגדרות קונטיינר הכרטיסים */
 main {
-    padding: 0.5rem 1rem 1rem;
+    padding: 0.5rem 1rem 1rem; /* שינוי: הקטנת המרווח העליון */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.75rem; /* שינוי: הקטנת המרווח בין האלמנטים */
 }
 
 /* סגנון הכרטיס הכללי */
@@ -160,7 +141,7 @@ main {
     }
     
     .choose-map-title {
-        margin: 0.5rem 0.75rem 0.25rem;
+        margin: 0.5rem 0.75rem 0.25rem; /* שינוי: מרווחים למובייל */
     }
 }
 
@@ -172,6 +153,7 @@ header h1 {
 .choose-map-title {
     font-size: 1.1em;
     font-weight: 100;
-    margin: 2rem 0;
-    text-align: center;
+    margin: 2rem 0; /* מרווחים גדולים יותר מעל ומתחת, ללא מרווחים מהצדדים */
+    text-align: center; /* מרכוז הטקסט */
 }
+
