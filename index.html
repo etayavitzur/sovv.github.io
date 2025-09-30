@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* סגנונות שהועברו מ-HTML ל-CSS או ל-inline-style כדי לפשט את קובץ ה-HTML */
         header h1 {
             margin-bottom: 4px;
         }
@@ -26,124 +25,166 @@
         .card:hover {
             transform: scale(1.02);
         }
+
+        /* סגנון המודל (כרטיס קופץ) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: none; /* נסתר כברירת מחדל */
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .modal-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .modal-card button {
+            display: block;
+            width: 100%;
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .modal-card button.google-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .modal-card button.google-btn:hover {
+            background-color: #45a049;
+        }
+
+        .modal-card button.garmin-btn {
+            background-color: #FF9800;
+            color: white;
+        }
+
+        .modal-card button.garmin-btn:hover {
+            background-color: #e68a00;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>שביל סובב סנסנה</h1>
-    </header>
+<header>
+    <h1>שביל סובב סנסנה</h1>
+</header>
 
-    <main>
-        <h2 class="choose-map-title">בחר מפה:</h2>
+<main>
+    <h2 class="choose-map-title">בחר מפה:</h2>
 
-        <div class="card card-4km" 
-             onclick="showOptions(
-                 'מסלול 4 ק"מ', 
-                 'https://www.google.com/maps/d/viewer?mid=1lmmvRdciOkm5Tyd3pof5pM-59mOmDaQ&usp=sharing', 
-                 'https://connect.garmin.com/modern/course/408130577'
-             )">
-            <div class="distance-section">4KM</div>
-            <div class="content-section">
-                <p class="path-description">
-                    המסלול מקיף את חלקו הצפוני של היער ממשיך במקביל לכביש מזרחה ומסתיים בחיבור בין שלב א’ לשלב ב’
-                </p>
-                <div class="stats">
-                    <div class="stat-item"><span>↗️</span><span>80m</span></div>
-                    <div class="stat-item"><span>↙️</span><span>80m</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-6km" 
-             onclick="showOptions(
-                 'מסלול 6 ק"מ', 
-                 'https://www.google.com/maps/d/viewer?mid=1TPnYyVNziI3lYx4UWM19K79odfSrauQ&usp=sharing', 
-                 'GARMIN_LINK_6KM_PLACEHOLDER'
-             )">
-            <div class="distance-section">6KM</div>
-            <div class="content-section">
-                <p class="path-description">
-                    המסלול מקיף את החלק הצפוני של היער וחוצה את הכביש דרומה עד לפנייה מזרח שחוצה את היער ממרכזו , מתחבר לכביש וממשיך עד למעיין
-                </p>
-                <div class="stats">
-                    <div class="stat-item"><span>↗️</span><span>100m</span></div>
-                    <div class="stat-item"><span>↙️</span><span>150m</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-10km" 
-             onclick="showOptions(
-                 'מסלול 10 ק"מ', 
-                 'https://www.google.com/maps/d/viewer?mid=10w2Q3LfyCYZmfWE8pobQarj7Wbs1K5E&usp=sharing', 
-                 'GARMIN_LINK_10KM_PLACEHOLDER'
-             )">
-            <div class="distance-section">10KM</div>
-            <div class="content-section">
-                <p class="path-description">
-                    המסלול עובר על יד היער וממשיל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר משם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
-                </p>
-                <div class="stats">
-                    <div class="stat-item"><span>↗️</span><span>150m</span></div>
-                    <div class="stat-item"><span>↙️</span><span>190m</span></div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div id="choiceModal" class="modal-overlay" onclick="hideOptions()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-btn" onclick="hideOptions()">×</span>
-            <h3 id="modalTitle">איך תרצה לנווט?</h3>
-
-            <div class="choice-buttons">
-                <a id="googleMapsBtn" href="#" class="choice-btn google-btn">
-                    <span class="btn-icon">🗺️</span>
-                    <span class="btn-text">Google מפות</span>
-                </a>
-                <a id="garminWatchBtn" href="#" class="choice-btn garmin-btn">
-                    <span class="btn-icon">⌚</span>
-                    <span class="btn-text">שעון Garmin</span>
-                </a>
+    <div class="card card-4km" data-link="https://www.google.com/maps/d/viewer?mid=1lmmvRdciOkm5Tyd3pof5pM-59mOmDaQ&usp=sharing">
+        <div class="distance-section">4KM</div>
+        <div class="content-section">
+            <p class="path-description">
+                המסלול מקיף את חלקו הצפוני של היער ממשיך במקביל לכביש מזרחה ומסתיים בחיבור בין שלב א’ לשלב ב’
+            </p>
+            <div class="stats">
+                <div class="stat-item"><span>↗️</span><span>80m</span></div>
+                <div class="stat-item"><span>↙️</span><span>80m</span></div>
             </div>
         </div>
     </div>
 
-    <script>
-        const modal = document.getElementById('choiceModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const googleMapsBtn = document.getElementById('googleMapsBtn');
-        const garminWatchBtn = document.getElementById('garminWatchBtn');
-        
-        /**
-         * מציג את חלון הבחירה ומעדכן את הקישורים.
-         * @param {string} pathName - שם המסלול (לכותרת המודאל).
-         * @param {string} googleUrl - קישור Google Maps.
-         * @param {string} garminUrl - הקישור המדויק לשעון Garmin.
-         */
-        function showOptions(pathName, googleUrl, garminUrl) {
-            // עדכון כותרת המודאל
-            modalTitle.textContent = `איך תרצה לנווט ב-${pathName}?`;
-            
-            // עדכון הקישורים בכפתורים
-            // לחיצה על Google Maps תפנה לקישור Google
-            googleMapsBtn.href = googleUrl;
-            
-            // לחיצה על Garmin תפנה לקישור הספציפי שקיבלנו
-            garminWatchBtn.href = garminUrl;
-            
-            // הגדרת המודאל כגלוי
-            modal.style.display = 'flex';
-        }
+    <div class="card card-6km" data-link="https://www.google.com/maps/d/viewer?mid=1TPnYyVNziI3lYx4UWM19K79odfSrauQ&usp=sharing">
+        <div class="distance-section">6KM</div>
+        <div class="content-section">
+            <p class="path-description">
+                המסלול מקיף את החלק הצפוני של היער וחוצה את הכביש דרומה עד לפנייה מזרח שחוצה את היער ממרכזו , מתחבר לכביש וממשיך עד למעיין
+            </p>
+            <div class="stats">
+                <div class="stat-item"><span>↗️</span><span>100m</span></div>
+                <div class="stat-item"><span>↙️</span><span>150m</span></div>
+            </div>
+        </div>
+    </div>
 
-        /**
-         * מסתיר את חלון הבחירה.
-         */
-        function hideOptions() {
+    <div class="card card-10km" data-link="https://www.google.com/maps/d/viewer?mid=10w2Q3LfyCYZmfWE8pobQarj7Wbs1K5E&usp=sharing">
+        <div class="distance-section">10KM</div>
+        <div class="content-section">
+            <p class="path-description">
+                המסלול עובר על יד היער וממשיל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר משם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
+            </p>
+            <div class="stats">
+                <div class="stat-item"><span>↗️</span><span>150m</span></div>
+                <div class="stat-item"><span>↙️</span><span>190m</span></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- כרטיס קופץ מרכזי -->
+<div class="modal-overlay" id="modal">
+    <div class="modal-card">
+        <h3>פתח באמצעות:</h3>
+        <button class="google-btn" id="googleBtn">גוגל מפות</button>
+        <button class="garmin-btn" id="garminBtn">ניווט בגרמין (כאן יהיה הקישור)</button>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('modal');
+    const googleBtn = document.getElementById('googleBtn');
+    const garminBtn = document.getElementById('garminBtn');
+    let currentLink = '';
+
+    // כשמקליקים על כרטיס
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+            currentLink = card.getAttribute('data-link');
+            modal.style.display = 'flex';
+        });
+    });
+
+    // פתיחה בגוגל מפות
+    googleBtn.addEventListener('click', () => {
+        if(currentLink) {
+            window.open(currentLink, '_blank');
+        }
+        modal.style.display = 'none';
+    });
+
+    // ניווט בגרמין – כרגע טקסט זמני
+    garminBtn.addEventListener('click', () => {
+        alert('כאן יהיה הקישור לניווט בגרמין');
+        modal.style.display = 'none';
+    });
+
+    // סגירה כשמקליקים מחוץ לכרטיס
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal){
             modal.style.display = 'none';
         }
-    </script>
+    });
+</script>
 
 </body>
 </html>
