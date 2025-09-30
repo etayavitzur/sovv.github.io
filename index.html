@@ -38,7 +38,7 @@
         }
 
         .choose-map-title {
-            font-size: 1.2em; /* הגדלנו קצת */
+            font-size: 1.2em;
             font-weight: 700; /* מודגש יותר */
             margin: 2rem 0;
             text-align: center;
@@ -205,21 +205,21 @@
         }
 
         .modal-card button.google-btn {
-            background-color: #81C784; /* ירוק בהיר */
+            background-color: #4CAF50; /* ירוק כמו הכרטיסייה */
             color: white;
         }
 
         .modal-card button.google-btn:hover {
-            background-color: #66BB6A;
+            background-color: #43A047;
         }
 
         .modal-card button.garmin-btn {
-            background-color: #64B5F6; /* כחול בהיר */
+            background-color: #2196F3; /* כחול כמו הכרטיסייה */
             color: white;
         }
 
         .modal-card button.garmin-btn:hover {
-            background-color: #42A5F5;
+            background-color: #1976D2;
         }
 
         @keyframes scaleFadeIn {
@@ -276,53 +276,4 @@
                 המסלול עובר על יד היער וממשיל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר משם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
             </p>
             <div class="stats">
-                <div class="stat-item"><span>↗️</span><span>150m</span></div>
-                <div class="stat-item"><span>↙️</span><span>190m</span></div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<!-- כרטיס קופץ מרכזי -->
-<div class="modal-overlay" id="modal">
-    <div class="modal-card">
-        <h3>פתח באמצעות:</h3>
-        <button class="google-btn" id="googleBtn">גוגל מפות</button>
-        <button class="garmin-btn" id="garminBtn">ניווט בגרמין (כאן יהיה הקישור)</button>
-    </div>
-</div>
-
-<script>
-    const modal = document.getElementById('modal');
-    const googleBtn = document.getElementById('googleBtn');
-    const garminBtn = document.getElementById('garminBtn');
-    let currentLink = '';
-
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', () => {
-            currentLink = card.getAttribute('data-link');
-            modal.style.display = 'flex';
-        });
-    });
-
-    googleBtn.addEventListener('click', () => {
-        if(currentLink) {
-            window.open(currentLink, '_blank');
-        }
-        modal.style.display = 'none';
-    });
-
-    garminBtn.addEventListener('click', () => {
-        alert('כאן יהיה הקישור לניווט בגרמין');
-        modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', (e) => {
-        if(e.target === modal){
-            modal.style.display = 'none';
-        }
-    });
-</script>
-
-</body>
-</html>
+                <div class="stat-item"><span>↗️</span><span>150
