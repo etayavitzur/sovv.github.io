@@ -4,37 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>שביל סובב סנסנה</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        header h1 {
-            margin-bottom: 4px;
+        body {
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            line-height: 1.6;
         }
+
+        header {
+            background-color: #4A604F;
+            color: white;
+            text-align: center;
+            padding: 0.75rem 0;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0 0 4px 0;
+            font-weight: 700;
+        }
+
+        main {
+            padding: 0.5rem 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
         .choose-map-title {
             font-size: 1.1em;
-            margin: 2px 0 4px;
-            font-weight: 500;
-            text-align: right;
+            font-weight: 100;
+            margin: 2rem 0;
+            text-align: center;
         }
+
         .card {
+            display: flex;
+            background-color: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            min-height: 160px;
             cursor: pointer;
             transition: transform 0.2s;
         }
+
         .card:hover {
             transform: scale(1.02);
         }
 
-        /* סגנון המודל (כרטיס קופץ) */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .card-4km::before { background-color: #4CAF50; }
+        .card-6km::before { background-color: #FF9800; }
+        .card-10km::before { background-color: #2196F3; }
+
+        .distance-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .card-4km .distance-section { background-color: #4CAF50; }
+        .card-6km .distance-section { background-color: #FF9800; }
+        .card-10km .distance-section { background-color: #2196F3; }
+
+        .content-section {
+            flex: 2;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .path-description {
+            color: #333;
+            font-size: 0.95rem;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .stats {
+            display: flex;
+            gap: 1rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                min-height: 140px;
+                align-items: stretch;
+            }
+
+            .distance-section {
+                font-size: 2rem;
+                flex: 1;
+                padding: 0.5rem;
+                border-radius: 0.75rem 0.75rem 0 0;
+            }
+
+            .card::before {
+                height: 6px;
+            }
+
+            .content-section {
+                padding: 0.75rem;
+                flex: 2;
+            }
+
+            .path-description {
+                font-size: 0.8rem;
+            }
+
+            .stats {
+                flex-direction: row;
+                gap: 0.5rem;
+                justify-content: center;
+            }
+
+            .stat-item {
+                font-size: 0.8rem;
+            }
+
+            .choose-map-title {
+                margin: 0.5rem 0.75rem 0.25rem;
+            }
+        }
+
+        /* כרטיס קופץ (modal) */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            display: none; /* נסתר כברירת מחדל */
+            background: rgba(0,0,0,0.5);
+            display: none;
             align-items: center;
             justify-content: center;
             z-index: 1000;
@@ -48,7 +182,9 @@
             width: 90%;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            animation: fadeIn 0.3s ease forwards;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleFadeIn 0.3s ease forwards;
         }
 
         .modal-card h3 {
@@ -86,9 +222,15 @@
             background-color: #e68a00;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px);}
-            to { opacity: 1; transform: translateY(0);}
+        @keyframes scaleFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -156,7 +298,6 @@
     const garminBtn = document.getElementById('garminBtn');
     let currentLink = '';
 
-    // כשמקליקים על כרטיס
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
             currentLink = card.getAttribute('data-link');
@@ -164,7 +305,6 @@
         });
     });
 
-    // פתיחה בגוגל מפות
     googleBtn.addEventListener('click', () => {
         if(currentLink) {
             window.open(currentLink, '_blank');
@@ -172,13 +312,11 @@
         modal.style.display = 'none';
     });
 
-    // ניווט בגרמין – כרגע טקסט זמני
     garminBtn.addEventListener('click', () => {
         alert('כאן יהיה הקישור לניווט בגרמין');
         modal.style.display = 'none';
     });
 
-    // סגירה כשמקליקים מחוץ לכרטיס
     modal.addEventListener('click', (e) => {
         if(e.target === modal){
             modal.style.display = 'none';
