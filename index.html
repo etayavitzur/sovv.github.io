@@ -183,8 +183,8 @@
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             opacity: 0;
-            transform: scale(0.8);
-            animation: scaleFadeIn 0.3s ease forwards;
+            transform: scale(0.92);
+            animation: scaleFadeIn 0.45s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
         }
 
         .modal-card h3 {
@@ -205,27 +205,27 @@
         }
 
         .modal-card button.google-btn {
-            background-color: #4CAF50;
+            background-color: #D32F2F; /* אדום כהה */
             color: white;
         }
 
         .modal-card button.google-btn:hover {
-            background-color: #45a049;
+            background-color: #B71C1C;
         }
 
         .modal-card button.garmin-btn {
-            background-color: #FF9800;
-            color: white;
+            background-color: #E0E0E0; /* אפור בהיר */
+            color: #333;
         }
 
         .modal-card button.garmin-btn:hover {
-            background-color: #e68a00;
+            background-color: #BDBDBD;
         }
 
         @keyframes scaleFadeIn {
             0% {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.92);
             }
             100% {
                 opacity: 1;
