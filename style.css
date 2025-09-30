@@ -119,27 +119,27 @@ main {
 */
 .modal-overlay {
     display: none; /* מוסתר כברירת מחדל */
-    position: fixed; /* נשאר במקום גם בגלילה */
-    z-index: 1000; /* ודא שהוא מעל שאר התוכן */
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6); /* רקע מעמעם שחור שקוף */
-    justify-content: center; /* מרכוז תוכן אנכי */
-    align-items: center; /* מרכוז תוכן אופקי */
+    justify-content: center; 
+    align-items: center;
     backdrop-filter: blur(2px); /* אפקט טשטוש קל */
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto; /* מרווח מלמעלה לריכוז אנכי נאה */
+    margin: 10% auto; 
     padding: 30px 20px 20px;
     border-radius: 12px;
     border-top: 5px solid #4A604F; /* קו עליון בצבע של הכותרת הראשית */
-    width: 90%; /* רחב יותר במובייל */
-    max-width: 400px; /* רוחב מירבי נוח בדסקטופ */
+    width: 90%; 
+    max-width: 400px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     position: relative;
     text-align: center;
@@ -213,7 +213,7 @@ main {
 
 /*
     ====================================================
-    התאמה למסכים קטנים (מובייל) - כולל סגנונות חדשים
+    התאמה למסכים קטנים (מובייל)
     ==================================================== 
 */
 @media (max-width: 600px) {
