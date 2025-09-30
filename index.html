@@ -276,4 +276,53 @@
                 המסלול עובר על יד היער וממשיל לשדות בחיבור עם הכביש פונה דרומה עד לפנייה ליד המאגר משם מתחבר לכיוון מזרח ליער חוצה אותו ומגיע לכביש ומשם למעיין
             </p>
             <div class="stats">
-                <div class="stat-item"><span>↗️</span><span>150
+                <div class="stat-item"><span>↗️</span><span>150m</span></div>
+                <div class="stat-item"><span>↙️</span><span>190m</span></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- כרטיס קופץ מרכזי -->
+<div class="modal-overlay" id="modal">
+    <div class="modal-card">
+        <h3>פתח באמצעות:</h3>
+        <button class="google-btn" id="googleBtn">גוגל מפות</button>
+        <button class="garmin-btn" id="garminBtn">ניווט בגרמין (10KM)</button>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('modal');
+    const googleBtn = document.getElementById('googleBtn');
+    const garminBtn = document.getElementById('garminBtn');
+    let currentLink = '';
+
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+            currentLink = card.getAttribute('data-link');
+            modal.style.display = 'flex';
+        });
+    });
+
+    googleBtn.addEventListener('click', () => {
+        if(currentLink) {
+            window.open(currentLink, '_blank');
+        }
+        modal.style.display = 'none';
+    });
+
+    garminBtn.addEventListener('click', () => {
+        window.open('https://connect.garmin.com/modern/course/408130577', '_blank');
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal){
+            modal.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
