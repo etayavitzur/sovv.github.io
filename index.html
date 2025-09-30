@@ -39,7 +39,7 @@
 
         .choose-map-title {
             font-size: 1.2em;
-            font-weight: 700; /* מודגש יותר */
+            font-weight: 700;
             margin: 2rem 0;
             text-align: center;
         }
@@ -160,7 +160,6 @@
             }
         }
 
-        /* כרטיס קופץ (modal) */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -205,7 +204,7 @@
         }
 
         .modal-card button.google-btn {
-            background-color: #4CAF50; /* ירוק כמו הכרטיסייה */
+            background-color: #4CAF50;
             color: white;
         }
 
@@ -214,7 +213,7 @@
         }
 
         .modal-card button.garmin-btn {
-            background-color: #2196F3; /* כחול כמו הכרטיסייה */
+            background-color: #2196F3;
             color: white;
         }
 
@@ -223,14 +222,8 @@
         }
 
         @keyframes scaleFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.92); }
+            100% { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -283,7 +276,6 @@
     </div>
 </main>
 
-<!-- כרטיס קופץ מרכזי -->
 <div class="modal-overlay" id="modal">
     <div class="modal-card">
         <h3>פתח באמצעות:</h3>
@@ -297,10 +289,20 @@
     const googleBtn = document.getElementById('googleBtn');
     const garminBtn = document.getElementById('garminBtn');
     let currentLink = '';
+    let currentGarminLink = '';
 
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
             currentLink = card.getAttribute('data-link');
+            
+            if(card.classList.contains('card-4km')) {
+                currentGarminLink = 'https://connect.garmin.com/modern/course/408154254';
+            } else if(card.classList.contains('card-6km')) {
+                currentGarminLink = 'https://connect.garmin.com/modern/course/408154956';
+            } else if(card.classList.contains('card-10km')) {
+                currentGarminLink = 'https://connect.garmin.com/modern/course/408155102';
+            }
+
             modal.style.display = 'flex';
         });
     });
@@ -313,7 +315,9 @@
     });
 
     garminBtn.addEventListener('click', () => {
-        window.open('https://connect.garmin.com/modern/course/408130577', '_blank');
+        if(currentGarminLink) {
+            window.open(currentGarminLink, '_blank');
+        }
         modal.style.display = 'none';
     });
 
