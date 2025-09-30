@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <style>
+        /* סגנונות שהועברו מ-HTML ל-CSS או ל-inline-style כדי לפשט את קובץ ה-HTML */
         header h1 {
             margin-bottom: 4px;
         }
@@ -36,7 +37,8 @@
     <main>
         <h2 class="choose-map-title">בחר מפה:</h2>
 
-        <div class="card card-4km" onclick="window.location.href='https://www.google.com/maps/d/viewer?mid=1lmmvRdciOkm5Tyd3pof5pM-59mOmDaQ&usp=sharing'">
+        <div class="card card-4km" 
+             onclick="showOptions('מסלול 4 ק"מ', 'https://www.google.com/maps/d/viewer?mid=1lmmvRdciOkm5Tyd3pof5pM-59mOmDaQ&usp=sharing', 'GARMIN_LINK_4KM')">
             <div class="distance-section">4KM</div>
             <div class="content-section">
                 <p class="path-description">
@@ -49,7 +51,8 @@
             </div>
         </div>
 
-        <div class="card card-6km" onclick="window.location.href='https://www.google.com/maps/d/viewer?mid=1TPnYyVNziI3lYx4UWM19K79odfSrauQ&usp=sharing'">
+        <div class="card card-6km" 
+             onclick="showOptions('מסלול 6 ק"מ', 'https://www.google.com/maps/d/viewer?mid=1TPnYyVNziI3lYx4UWM19K79odfSrauQ&usp=sharing', 'GARMIN_LINK_6KM')">
             <div class="distance-section">6KM</div>
             <div class="content-section">
                 <p class="path-description">
@@ -62,7 +65,8 @@
             </div>
         </div>
 
-        <div class="card card-10km" onclick="window.location.href='https://www.google.com/maps/d/viewer?mid=10w2Q3LfyCYZmfWE8pobQarj7Wbs1K5E&usp=sharing'">
+        <div class="card card-10km" 
+             onclick="showOptions('מסלול 10 ק"מ', 'https://www.google.com/maps/d/viewer?mid=10w2Q3LfyCYZmfWE8pobQarj7Wbs1K5E&usp=sharing', 'GARMIN_LINK_10KM')">
             <div class="distance-section">10KM</div>
             <div class="content-section">
                 <p class="path-description">
@@ -75,6 +79,62 @@
             </div>
         </div>
     </main>
+
+    <div id="choiceModal" class="modal-overlay" onclick="hideOptions()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="hideOptions()">&times;</span>
+            <h3 id="modalTitle">איך תרצה לנווט ב-?</h3>
+
+            <div class="choice-buttons">
+                <a id="googleMapsBtn" href="#" class="choice-btn google-btn">
+                    <span class="btn-icon">🗺️</span>
+                    <span class="btn-text">Google מפות</span>
+                </a>
+                <a id="garminWatchBtn" href="#" class="choice-btn garmin-btn">
+                    <span class="btn-icon">⌚</span>
+                    <span class="btn-text">שעון Garmin</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('choiceModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const googleMapsBtn = document.getElementById('googleMapsBtn');
+        const garminWatchBtn = document.getElementById('garminWatchBtn');
+        
+        // קישור זמני לגארמין, אותו תוכל לשנות מאוחר יותר
+        const GARMIN_BASE_URL = "http://garmin.connect.com/"; 
+
+        /**
+         * מציג את חלון הבחירה ומעדכן את הקישורים.
+         * @param {string} pathName - שם המסלול (לכותרת המודאל).
+         * @param {string} googleUrl - קישור Google Maps.
+         * @param {string} garminPlaceholder - שם קישור Garmin (נשתמש בו עם ה-BASE_URL).
+         */
+        function showOptions(pathName, googleUrl, garminPlaceholder) {
+            // עדכון כותרת המודאל
+            modalTitle.textContent = `איך תרצה לנווט ב-${pathName}?`;
+            
+            // עדכון הקישורים בכפתורים
+            googleMapsBtn.href = googleUrl;
+            
+            // יצירת הקישור לגארמין (בהנחה שתספק את הקישור הספציפי לכל מסלול)
+            // כרגע משתמש ב-Placeholder והבסיס, ניתן לשנות זאת כשתקבל את הקישורים
+            garminWatchBtn.href = GARMIN_BASE_URL + garminPlaceholder;
+
+            // הצגת המודאל
+            modal.style.display = 'flex';
+        }
+
+        /**
+         * מסתיר את חלון הבחירה.
+         */
+        function hideOptions() {
+            modal.style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
