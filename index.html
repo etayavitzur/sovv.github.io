@@ -15,20 +15,17 @@
             direction: rtl;
             line-height: 1.6;
         }
-
         header {
             background-color: #4A604F;
             color: white;
             text-align: center;
             padding: 0.75rem 0;
         }
-
         header h1 {
             font-size: 1.5rem;
             margin: 0 0 4px 0;
             font-weight: 700;
         }
-
         main {
             padding: 0.5rem 1rem 1rem;
             display: flex;
@@ -36,14 +33,12 @@
             align-items: center;
             gap: 0.75rem;
         }
-
         .choose-map-title {
             font-size: 1.2em;
             font-weight: 700;
             margin: 2rem 0;
             text-align: center;
         }
-
         .card {
             display: flex;
             background-color: white;
@@ -57,24 +52,16 @@
             cursor: pointer;
             transition: transform 0.2s;
         }
-
-        .card:hover {
-            transform: scale(1.02);
-        }
-
+        .card:hover { transform: scale(1.02); }
         .card::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 6px;
+            top: 0; right: 0;
+            width: 100%; height: 6px;
         }
-
         .card-4km::before { background-color: #4CAF50; }
         .card-6km::before { background-color: #FF9800; }
         .card-10km::before { background-color: #2196F3; }
-
         .distance-section {
             flex: 1;
             display: flex;
@@ -86,11 +73,9 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
-
         .card-4km .distance-section { background-color: #4CAF50; }
         .card-6km .distance-section { background-color: #FF9800; }
         .card-10km .distance-section { background-color: #2196F3; }
-
         .content-section {
             flex: 2;
             padding: 1.25rem;
@@ -98,81 +83,52 @@
             flex-direction: column;
             justify-content: center;
         }
-
         .path-description {
             color: #333;
             font-size: 0.95rem;
             margin: 0 0 0.75rem 0;
         }
-
         .stats {
             display: flex;
             gap: 1rem;
             color: #555;
             font-weight: 500;
         }
-
         .stat-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             font-size: 0.9rem;
         }
-
         @media (max-width: 600px) {
-            .card {
-                min-height: 140px;
-                align-items: stretch;
-            }
-
+            .card { min-height: 140px; align-items: stretch; }
             .distance-section {
                 font-size: 2rem;
                 flex: 1;
                 padding: 0.5rem;
                 border-radius: 0.75rem 0.75rem 0 0;
             }
-
-            .card::before {
-                height: 6px;
-            }
-
-            .content-section {
-                padding: 0.75rem;
-                flex: 2;
-            }
-
-            .path-description {
-                font-size: 0.8rem;
-            }
-
+            .card::before { height: 6px; }
+            .content-section { padding: 0.75rem; flex: 2; }
+            .path-description { font-size: 0.8rem; }
             .stats {
                 flex-direction: row;
                 gap: 0.5rem;
                 justify-content: center;
             }
-
-            .stat-item {
-                font-size: 0.8rem;
-            }
-
-            .choose-map-title {
-                margin: 0.5rem 0.75rem 0.25rem;
-            }
+            .stat-item { font-size: 0.8rem; }
+            .choose-map-title { margin: 0.5rem 0.75rem 0.25rem; }
         }
-
         .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             background: rgba(0,0,0,0.5);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 1000;
         }
-
         .modal-card {
             background: white;
             border-radius: 1rem;
@@ -185,12 +141,7 @@
             transform: scale(0.92);
             animation: scaleFadeIn 0.45s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
         }
-
-        .modal-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
+        .modal-card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
         .modal-card button {
             display: block;
             width: 100%;
@@ -202,25 +153,16 @@
             cursor: pointer;
             transition: background 0.2s ease;
         }
-
         .modal-card button.google-btn {
             background-color: #4CAF50;
             color: white;
         }
-
-        .modal-card button.google-btn:hover {
-            background-color: #43A047;
-        }
-
+        .modal-card button.google-btn:hover { background-color: #43A047; }
         .modal-card button.garmin-btn {
             background-color: #2196F3;
             color: white;
         }
-
-        .modal-card button.garmin-btn:hover {
-            background-color: #1976D2;
-        }
-
+        .modal-card button.garmin-btn:hover { background-color: #1976D2; }
         @keyframes scaleFadeIn {
             0% { opacity: 0; transform: scale(0.92); }
             100% { opacity: 1; transform: scale(1); }
@@ -236,7 +178,8 @@
 <main>
     <h2 class="choose-map-title">בחר מפה:</h2>
 
-    <div class="card card-4km" data-link="https://www.google.com/maps/d/viewer?mid=1lmmvRdciOkm5Tyd3pof5pM-59mOmDaQ&usp=sharing">
+    <div class="card card-4km" data-link="https://www.google.com/maps/d/viewer?mid=1lmmvRdciOkm5Tyd3pof5pM-59mOmDaQ&usp=sharing" 
+         data-garmin="https://connect.garmin.com/modern/course/408154254">
         <div class="distance-section">4KM</div>
         <div class="content-section">
             <p class="path-description">
@@ -249,7 +192,8 @@
         </div>
     </div>
 
-    <div class="card card-6km" data-link="https://www.google.com/maps/d/viewer?mid=1TPnYyVNziI3lYx4UWM19K79odfSrauQ&usp=sharing">
+    <div class="card card-6km" data-link="https://www.google.com/maps/d/viewer?mid=1TPnYyVNziI3lYx4UWM19K79odfSrauQ&usp=sharing" 
+         data-garmin="https://connect.garmin.com/modern/course/408154956">
         <div class="distance-section">6KM</div>
         <div class="content-section">
             <p class="path-description">
@@ -262,7 +206,8 @@
         </div>
     </div>
 
-    <div class="card card-10km" data-link="https://www.google.com/maps/d/viewer?mid=10w2Q3LfyCYZmfWE8pobQarj7Wbs1K5E&usp=sharing">
+    <div class="card card-10km" data-link="https://www.google.com/maps/d/viewer?mid=10w2Q3LfyCYZmfWE8pobQarj7Wbs1K5E&usp=sharing" 
+         data-garmin="https://connect.garmin.com/modern/course/408155102">
         <div class="distance-section">10KM</div>
         <div class="content-section">
             <p class="path-description">
@@ -293,38 +238,24 @@
 
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
-            currentLink = card.getAttribute('data-link');
-            
-            if(card.classList.contains('card-4km')) {
-                currentGarminLink = 'https://connect.garmin.com/modern/course/408154254';
-            } else if(card.classList.contains('card-6km')) {
-                currentGarminLink = 'https://connect.garmin.com/modern/course/408154956';
-            } else if(card.classList.contains('card-10km')) {
-                currentGarminLink = 'https://connect.garmin.com/modern/course/408155102';
-            }
-
+            currentLink = card.dataset.link;
+            currentGarminLink = card.dataset.garmin;
             modal.style.display = 'flex';
         });
     });
 
     googleBtn.addEventListener('click', () => {
-        if(currentLink) {
-            window.open(currentLink, '_blank');
-        }
+        if(currentLink) window.open(currentLink, '_blank');
         modal.style.display = 'none';
     });
 
     garminBtn.addEventListener('click', () => {
-        if(currentGarminLink) {
-            window.open(currentGarminLink, '_blank');
-        }
+        if(currentGarminLink) window.open(currentGarminLink, '_blank');
         modal.style.display = 'none';
     });
 
     modal.addEventListener('click', (e) => {
-        if(e.target === modal){
-            modal.style.display = 'none';
-        }
+        if(e.target === modal) modal.style.display = 'none';
     });
 </script>
 
