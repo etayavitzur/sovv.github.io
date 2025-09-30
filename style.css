@@ -25,17 +25,15 @@ header h1 {
 
 /* הגדרות קונטיינר הכרטיסים */
 main {
-    padding: 0.5rem 1rem 1rem;
+    padding: 0.5rem 1rem 1rem; /* שינוי: הקטנת המרווח העליון */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.75rem; /* שינוי: הקטנת המרווח בין האלמנטים */
 }
 
 /* סגנון הכרטיס הכללי */
 .card {
-    cursor: pointer;
-    transition: transform 0.2s;
     display: flex;
     background-color: white;
     border-radius: 0.75rem;
@@ -45,6 +43,8 @@ main {
     max-width: 600px;
     position: relative;
     min-height: 160px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .card:hover {
@@ -112,110 +112,7 @@ main {
     font-size: 0.9rem;
 }
 
-/*
-    ====================================================
-    סגנונות חדשים: חלון קופץ (Modal) לבחירת ניווט 
-    ==================================================== 
-*/
-.modal-overlay {
-    display: none; /* מוסתר כברירת מחדל */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6); /* רקע מעמעם שחור שקוף */
-    justify-content: center; 
-    align-items: center;
-    backdrop-filter: blur(2px); /* אפקט טשטוש קל */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto; 
-    padding: 30px 20px 20px;
-    border-radius: 12px;
-    border-top: 5px solid #4A604F; /* קו עליון בצבע של הכותרת הראשית */
-    width: 90%; 
-    max-width: 400px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    position: relative;
-    text-align: center;
-}
-
-.modal-content h3 {
-    margin-top: 0;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #333;
-}
-
-.close-btn {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: #000;
-    text-decoration: none;
-}
-
-.choice-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.choice-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: opacity 0.2s, transform 0.2s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.choice-btn:hover {
-    transform: translateY(-1px);
-    opacity: 0.9;
-}
-
-.btn-icon {
-    font-size: 1.5rem;
-    margin-left: 10px;
-}
-
-/* סגנון כפתור Google Maps */
-.google-btn {
-    background-color: #4285F4; /* צבע כחול של גוגל */
-    color: white;
-}
-
-/* סגנון כפתור Garmin */
-.garmin-btn {
-    background-color: #0076a8; /* צבע כחול-צי יאה לגארמין */
-    color: white;
-}
-
-/*
-    ====================================================
-    התאמה למסכים קטנים (מובייל)
-    ==================================================== 
-*/
+/* התאמה למסכים קטנים (מובייל) */
 @media (max-width: 600px) {
     .card {
         min-height: 140px;
@@ -250,21 +147,83 @@ main {
     }
     
     .choose-map-title {
-        margin: 0.5rem 0.75rem 0.25rem;
+        margin: 0.5rem 0.75rem 0.25rem; /* שינוי: מרווחים למובייל */
     }
+}
 
-    /* התאמות מובייל למודאל */
-    .modal-content {
-        margin: 20% auto;
-        padding: 20px 15px;
-    }
+/* תיקונים למרווחים והצמדת הטקסט */
+header h1 {
+    margin-bottom: 4px;
+}
 
-    .choice-btn {
-        padding: 10px 15px;
-        font-size: 1rem;
-    }
+.choose-map-title {
+    font-size: 1.1em;
+    font-weight: 100;
+    margin: 2rem 0; /* מרווחים גדולים יותר מעל ומתחת */
+    text-align: center; /* מרכוז הטקסט */
+}
 
-    .btn-icon {
-        font-size: 1.3rem;
-    }
+/* סגנון הכרטיס הקופץ (modal) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.modal-card button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.modal-card button.google-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.modal-card button.google-btn:hover {
+    background-color: #45a049;
+}
+
+.modal-card button.garmin-btn {
+    background-color: #FF9800;
+    color: white;
+}
+
+.modal-card button.garmin-btn:hover {
+    background-color: #e68a00;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
 }
